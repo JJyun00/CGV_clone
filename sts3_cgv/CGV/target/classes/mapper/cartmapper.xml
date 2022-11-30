@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgv.project.cartmapper"> <!-- Repository와 연동을 위해 사용될 namespace -->
+	<insert id="insertCart" parameterType="cart"> <!-- Cart클래스를 변수로 받아와 쿼리에 사용 -->
+		insert
+		into cart(name, price, count)
+		values (#{name}, #{price}, #{count})
+	</insert>
+	
+	<select id="selectCart" resultType="cart"> <!-- 조회된 값을 Cart클래스에 담아 return -->
+		select name, price, count
+		from cart
+	</select>
+</mapper>
